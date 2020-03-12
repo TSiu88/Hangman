@@ -28,6 +28,13 @@
 ---
 ## Description
 
+#### 3/12 Work from Home Summary
+- Music Organizer
+- Upper Cohort Trade Show
+- Hangman
+  - Not finished, ran out of time
+- Struggles: Finishing hangman, dynamic picture source links
+
 _README under construction_
 <!-- _Detailed desc w/ purpose/usage, what does, motivation to create, why exists, other info for users/developers to have_ -->
 
@@ -95,7 +102,9 @@ _Some example tests:_
 
 ## Known Bugs
 
-_There are currently no known bugs in this program_
+- Guessed letters do not appear
+- link to guess another letter not working
+- guesses left not calculated
 
 ## Support and contact details
 
