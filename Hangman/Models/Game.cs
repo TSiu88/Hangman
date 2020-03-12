@@ -1,21 +1,21 @@
 using System;
 using System.Collections.Generic;
 
-namespace ProjectName.Models
+namespace Hangman.Models
 {
-  public class Item
+  public class Game
   {
     public string Property { get; set; }
-    private static List<Item> _instances = new List<Item>() {};
+    private static List<Game> _instances = new List<Game>() {};
     public int Id { get; }
-    public Item(string property)
+    public Game(string property)
     {
       Property = property;
       _instances.Add(this);
       Id = _instances.Count;
     }
 
-    public static List<Item> GetAll()
+    public static List<Game> GetAll()
     {
       return _instances;
     }
@@ -25,7 +25,7 @@ namespace ProjectName.Models
       _instances.Clear();
     }
 
-    public static Item Find(int searchId)
+    public static Game Find(int searchId)
     {
       return _instances[searchId-1];
     }

@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectName.Models;
+using Hangman.Models;
 using System;
 
-namespace ProjectName.Tests
+namespace Hangman.Tests
 {
   [TestClass]
-  public class ItemTests : IDisposable
+  public class GameTests : IDisposable
   {
     public void Dispose()
     {
@@ -15,16 +15,16 @@ namespace ProjectName.Tests
     [TestMethod]
     public void ItemConstructor_CreatesInstanceOfItem_Item()
     {
-      Item newItem = new Item("property");
-      Assert.AreEqual(typeof(Item), newItem.GetType());
+      // Item newItem = new Item("property");
+      // Assert.AreEqual(typeof(Item), newItem.GetType());
     }
 
     [TestMethod]
     public void NameOfMethodWeAreTesting_DescriptionOfBehavior_ExpectedReturnValue()
     {
-      Item newItem = new Item("property");
-      string result = newItem.Property;
-      Assert.AreEqual("Expected", result);
+      // Item newItem = new Item("property");
+      // string result = newItem.Property;
+      // Assert.AreEqual("Expected", result);
     }
   }
 }

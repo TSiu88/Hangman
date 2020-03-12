@@ -1,9 +1,9 @@
 using System;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
-using ProjectName.Models;
+using Hangman.Models;
 
-namespace ProjectName
+namespace Hangman
 {
   class Program
   {
