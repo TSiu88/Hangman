@@ -1,10 +1,10 @@
 @{
   Layout = "_Layout";
 }
-
-
+@using Hangman.Models
+<img src="~/img/@Game.CurrentImageLink()" />
 <form action="/games" method="post">
-  <label for="guessLetter">
-  <input type="text" id="guessletter" name="guessletter" maxlength="1">
+  <label for="guess">
+  <input type="text" id="guess" name="guess" maxlength="1">
   <button type="submit">Guess!</button>
 </form>

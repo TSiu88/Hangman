@@ -2,12 +2,22 @@
   Layout = "_Layout";
 }
 @using Hangman.Models
-<h1>Page Title</h1>
-@{foreach (Item item in Item.GetAll())
-{
-  <h4><a href="/items/@item.Id">@item.Property</a></h4>
-}}
+<h1>Hangman!</h1>
+<img src="~/img/@Game.CurrentImageLink()" />
+<h3>Letters Guessed:</h3>
+
+  @if(@Game.GetAllGuessedLetters().Count > 0)
+  {
+    <ul>
+    @foreach (char letter in Game.GetAllGuessedLetters())
+    {
+      <li>letter</li>
+    }
+    </ul>
+  }
+
+<h3>Wrong Guesses Remaining: (6-@Game.WrongGuesses)</h3>
 <div class="footer">
-  <a href="/">Return To Home</a>
-  <a href="/items/new">Add another</a>
+  <a href="/items/new">Guess a Letter</a>
+  <a href="/">Give up and Return To Home</a>
 </div>
