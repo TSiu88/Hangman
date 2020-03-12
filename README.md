@@ -61,10 +61,17 @@ _README under construction_
 
 ## Specifications
 
-<!-- * _List of features the program should do, from simplest to more complex, handling all possible cases.  Can do as text or put in table, with example input and output_
-  * _Example Input: expected input_
-  * _Example Output: expected output_
--->
+* _Computer choses a word from a list to use for the game_
+  * _Example Input: Game start_
+  * _Example Output: Random word chosen from a list_
+* _Word displayed as blanks for each letter._
+  * _Example Input: word="word"_
+  * _Example Output: show="_ _ _ _ "_
+* When guess right, show letters in blanks for that letter
+* When guess wrong, show next image - have 6 wrong guesses before game over
+* Display if correct or incorrect when guessing and change styling, how many wrong guesses have left
+* If try to guess same letter twice, show error and ask for another letter
+
 
 ## Screenshots
 

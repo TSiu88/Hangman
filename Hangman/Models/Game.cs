@@ -5,29 +5,84 @@ namespace Hangman.Models
 {
   public class Game
   {
-    public string Property { get; set; }
-    private static List<Game> _instances = new List<Game>() {};
-    public int Id { get; }
-    public Game(string property)
+    public string WordToGuess { get; set; }
+    public static char[] CharactersToGuess;
+    private static List<string> _wordList = new List<string> {"test", "guess", "words"};
+  
+    private static List<char> _lettersGuessed; 
+    public int wrongGuesses { get; set; }
+    public Game()
     {
-      Property = property;
-      _instances.Add(this);
-      Id = _instances.Count;
+      WordToGuess = RandomWordGenerator();
+      CharactersToGuess = WordToGuess.ToCharArray();
+      _lettersGuessed = new List<char>() {};
+      wrongGuesses = 0;
     }
 
-    public static List<Game> GetAll()
+    private string RandomWordGenerator()
     {
-      return _instances;
+      Random rand = new Random();
+      int _wordListLength = _wordList.Count;
+      int randomNumber = rand.Next(_wordListLength);
+      return _wordList[randomNumber];
     }
 
-    public static void ClearAll()
+    public static List<char> GetAllGuessedLetters()
     {
-      _instances.Clear();
+      return _lettersGuessed;
     }
 
-    public static Game Find(int searchId)
+    public static void ClearAllGuesses()
     {
-      return _instances[searchId-1];
+      _lettersGuessed.Clear();
+    }
+
+    public static bool AlreadyGuessed(char letter)
+    {
+      if (_lettersGuessed.Contains(letter))
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+
+    public static bool GuessLetterCorrectly(char letter)
+    {
+      if (AlreadyGuessed)
+      {
+        //Give error, ask to guess another letter
+      }
+      else
+      {
+        _lettersGuessed.Add(letter);
+        if(CharactersToGuess.Contains(letter))
+        {
+          return true;
+        }
+        else
+        {
+          wrongGuesses++;
+          return false;
+        }
+      }
+      
+    }
+
+    public static List<int> MatchChar(char letter)
+    {
+      List<int> matchChar = new List<int> {};
+      for(int i = 0; i < CharacterstoGuess.Length; i ++)
+      {
+        if(letter == CharacterstoGuess[i])
+        {
+          matchChar.Add(i);
+        }
+      }
+      return matchChar;
     }
   }
 }
