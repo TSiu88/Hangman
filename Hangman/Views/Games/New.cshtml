@@ -2,9 +2,15 @@
   Layout = "_Layout";
 }
 @using Hangman.Models
+<h1>Guess a Letter</h1>
 <img src="~/img/@Game.CurrentImageLink()" />
+<h2>@Game.VisibleLettersToString()</h2>
+<h3>@Game.GuessMessage</h3>
 <form action="/games" method="post">
   <label for="guess">
   <input type="text" id="guess" name="guess" maxlength="1">
   <button type="submit">Guess!</button>
 </form>
+<div class="footer">
+  <a href="/">Give up and Return To Home</a>
+</div>

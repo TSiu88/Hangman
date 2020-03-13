@@ -4,6 +4,8 @@
 @using Hangman.Models
 <h1>Hangman!</h1>
 <img src="~/img/@Game.CurrentImageLink()" />
+<h2>@Game.VisibleLettersToString()</h2>
+<h3>@Game.GuessMessage</h3>
 <h3>Letters Guessed:</h3>
 
   @if(@Game.GetAllGuessedLetters().Count > 0)
@@ -11,13 +13,20 @@
     <ul>
     @foreach (char letter in Game.GetAllGuessedLetters())
     {
-      <li>letter</li>
+      <li>@letter</li>
     }
     </ul>
   }
 
-<h3>Wrong Guesses Remaining: (6-@Game.WrongGuesses)</h3>
+<h3>Wrong Guesses Remaining: @Game.GetWrongGuessesRemaining()</h3>
 <div class="footer">
-  <a href="/items/new">Guess a Letter</a>
-  <a href="/">Give up and Return To Home</a>
+  @if(Game.GameOver)
+  {
+    <a href="/">Return To Home</a>
+  }
+  else
+  {
+    <a href="/games/new">Guess a Letter</a><br><br>
+    <a href="/">Give up and Return To Home</a>
+  }
 </div>

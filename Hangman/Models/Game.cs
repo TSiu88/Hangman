@@ -10,18 +10,24 @@ namespace Hangman.Models
     public static char[] CharactersToGuess;
     private static List<string> _wordList = new List<string> {"test", "guess", "words"};
   
-    private static List<char> _lettersGuessed; 
+    private static List<char> _lettersGuessed = new List<char>() {}; 
     public static int WrongGuesses { get; set; }
-    public static int Rightguesses { get; set; }
-    public static List<int> MatchedChar = new List<int> {};
-    public static List<int> UnmatchedChar = new List<int> {};
+    public static int RightGuesses { get; set; }
+    private static List<string> _visibleLetters = new List<string>() {};
+    public static string GuessMessage { get; set; }
+    public static bool GameOver { get; set; }
+
     public Game()
     {
+      ClearAllGuesses();
+      _visibleLetters = new List<string>() {};
       WordToGuess = RandomWordGenerator();
       CharactersToGuess = WordToGuess.ToCharArray();
-      _lettersGuessed = new List<char>() {};
+      AddBlanks();
+      GuessMessage = "";
       WrongGuesses = 0;
-      Rightguesses = 0;
+      RightGuesses = 0;
+      GameOver = false;
     }
 
     private string RandomWordGenerator()
@@ -32,9 +38,45 @@ namespace Hangman.Models
       return _wordList[randomNumber];
     }
 
+    private void AddBlanks()
+    {
+      for(int i = 0; i<CharactersToGuess.Length; i++)
+      {
+        _visibleLetters.Add("_");
+      }
+    }
+
+    public static List<string> GetAllVisibleLetters()
+    {
+      return _visibleLetters;
+    }
+
+    public static string VisibleLettersToString()
+    {
+      string visibleString = "";
+      foreach(String letter in _visibleLetters)
+      {
+        visibleString += letter + " ";
+      }
+      return visibleString;
+    }
+    
+    public static int GetWrongGuessesRemaining()
+    {
+      if(WrongGuesses <= 6)
+      {
+        return 6-WrongGuesses;
+      }
+      return 6;
+    }
+
     public static string CurrentImageLink()
     {
-      return "Hangman" + WrongGuesses + ".png";
+      if(WrongGuesses <= 6)
+      {
+        return "Hangman" + WrongGuesses + ".png";
+      }
+      return "Hangman6.png";
     }
 
     public static List<char> GetAllGuessedLetters()
@@ -51,6 +93,7 @@ namespace Hangman.Models
     {
       if (_lettersGuessed == null)
       {
+        _lettersGuessed.Add(letter);
         return false;
       }
       else if (_lettersGuessed.Contains(letter))
@@ -59,60 +102,42 @@ namespace Hangman.Models
       }
       else
       {
+        _lettersGuessed.Add(letter);
         return false;
       }
     }
 
+    public static bool GuessLetterCorrectly(char letter)
+    {
+      if(CharactersToGuess.Contains(letter) == true)
+      {
+        RightGuesses++;
+        return true;
+      }
+      else
+      {
+        WrongGuesses++;
+        return false;
+      }
+    }
 
-    // public static bool GuessLetterCorrectly(char letter)
-    // {
-    //   // if (AlreadyGuessed)
-    //   // {
-    //   //   //Give error, ask to guess another letter
-    //   // }
-    //   _lettersGuessed.Add(letter);
-    //   if(CharactersToGuess.Contains(letter) == true)
-    //   {
-    //     // RightGuesses ++;
-    //     return true;
-    //   }
-    //   else
-    //   {
-    //     WrongGuesses++;
-    //     return false;
-    //   }
-    // }
-
-    // public static List<int> MatchChar(char letter)
-    // {
-
-    //   // for(int i = 0; i < CharacterstoGuess.Length; i ++)
-    //   // {
-    //   //   if(letter == CharacterstoGuess[i])
-    //   //   {
-    //   //     MatchedChar.Add(i);
-    //   //   }
-    //   // }
-    //   // return MatchedChar;
-    // }
-
-    // public static void MatchCharValidator(char letter)
-    // {
-
-    //   for(int i = 0; i < CharactersToGuess.Length; i ++)
-    //   {
-    //     if(letter == CharactersToGuess[i])
-    //     {
-    //       // MatchedChar.Add(CharacterstoGuess[i]);
-    //       Rightguesses ++;
-    //     }
-    //     else
-    //     {
-    //       // UnmatchedChar.Add(CharacterstoGuess[i]);
-    //       WrongGuesses ++;
-    //     }
-    //   }
-  
-    // }
+    public static void CharacterMatches(char letter)
+    {
+      for(int i=0; i<CharactersToGuess.Length; i++)
+      {
+        if(letter == CharactersToGuess[i])
+        {
+          _visibleLetters[i] = letter.ToString();
+        }
+      }
+    }
+    
+    public static void CheckGameOver()
+    {
+      if(WrongGuesses >= 6 || RightGuesses == (GetAllVisibleLetters().Count-1))
+      {
+        GameOver = true;
+      }
+    }
   }
 }

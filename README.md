@@ -4,9 +4,7 @@
 
 #### By _**Tiffany Siu and Jiwon Han**_
 
-<!-- [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive) -->
-<!-- [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) -->
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 ![LastCommit](https://img.shields.io/github/last-commit/tsiu88/Hangman)
 ![Languages](https://img.shields.io/github/languages/top/tsiu88/Hangman)
 [![MIT license](https://img.shields.io/badge/License-MIT-orange.svg)](https://lbesson.mit-license.org/)
@@ -21,10 +19,9 @@
 3. [Notable Features](#notable-features)
 4. [Specifications](#specifications)
 5. [Screenshots](#screenshots)
-6. [Test Case Example](#test-case-example)
-7. [Known Bugs](#known-bugs)
-8. [Support and Contact Details](#support-and-contact-details)
-9. [License](#license)
+6. [Known Bugs](#known-bugs)
+7. [Support and Contact Details](#support-and-contact-details)
+8. [License](#license)
 ---
 ## Description
 
@@ -73,11 +70,19 @@ _README under construction_
   * _Example Output: Random word chosen from a list_
 * _Word displayed as blanks for each letter._
   * _Example Input: word="word"_
-  * _Example Output: show="_ _ _ _ "_
+  * _Example Output: show="_ _ _ _"_
 * When guess right, show letters in blanks for that letter
+  * _Example Input: word="word", guess=r_
+  * _Example Output: show="_ _ r _"_
 * When guess wrong, show next image - have 6 wrong guesses before game over
+  * _Example Input: word="word", guess=s_
+  * _Example Output: message="incorrect!"_
 * Display if correct or incorrect when guessing and change styling, how many wrong guesses have left
+  * _Example Input: word="word", guess=s_
+  * _Example Output: message="incorrect!", wrong guesses left=5_
 * If try to guess same letter twice, show error and ask for another letter
+  * _Example Input: previous guesses=s, guess=s_
+  * _Example Output: message="already guessed!"_
 
 
 ## Screenshots
@@ -92,19 +97,9 @@ _Here is a preview of what the output looks like:_
 
 <!-- _{Show pictures using ![alt text](image.jpg), show what library does as concisely as possible but don't need to explain how project solves problem from `code`_ -->
 
-## Test Case Example
-<!-- _Tests are done through Jest and are run from the command line prompt with `npm test`._
-_Some example tests:_
-![Snippet of an example test](img/test1.png)
-
-![Snippet of an example result](img/test2.png) -->
-<!-- _describe and show how to run tests with `code` examples}_ -->
-
 ## Known Bugs
 
-- Guessed letters do not appear
-- link to guess another letter not working
-- guesses left not calculated
+_There are currently no known bugs in this program._
 
 ## Support and contact details
 
