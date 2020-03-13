@@ -27,10 +27,11 @@
 
 #### 3/12 Work from Home Summary
 - Music Organizer
+  - practice in objects within objects
 - Upper Cohort Trade Show
 - Hangman
-  - Not finished, ran out of time
-- Struggles: Finishing hangman, dynamic picture source links
+  - Not finished at 5pm, currently works
+- Struggles: Finishing hangman on time, dynamic picture source links, figuring out how to get data types to compare and display properly
 
 _README under construction_
 <!-- _Detailed desc w/ purpose/usage, what does, motivation to create, why exists, other info for users/developers to have_ -->
