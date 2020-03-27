@@ -1,6 +1,6 @@
 # _Hangman_
 
-#### _Brief desc of Project, 03.12.2020_
+#### _Hangman Game, 03.12.2020_
 
 #### By _**Tiffany Siu and Jiwon Han**_
 
@@ -16,12 +16,10 @@
     - [Requirements to Run](#requirements-to-run)
     - [Instructions](#instructions)
     - [Other Technologies Used](#other-technologies-used)
-3. [Notable Features](#notable-features)
-4. [Specifications](#specifications)
-5. [Screenshots](#screenshots)
-6. [Known Bugs](#known-bugs)
-7. [Support and Contact Details](#support-and-contact-details)
-8. [License](#license)
+3. [Specifications](#specifications)
+4. [Known Bugs](#known-bugs)
+5. [Support and Contact Details](#support-and-contact-details)
+6. [License](#license)
 ---
 ## Description
 
@@ -30,11 +28,10 @@
   - practice in objects within objects
 - Upper Cohort Trade Show
 - Hangman
-  - Not finished at 5pm, currently works
+  - Not finished at 5pm, currently works due to being finished later
 - Struggles: Finishing hangman on time, dynamic picture source links, figuring out how to get data types to compare and display properly
 
-_README under construction_
-<!-- _Detailed desc w/ purpose/usage, what does, motivation to create, why exists, other info for users/developers to have_ -->
+This application practices MVC and objects within objects in a game of hangman where the user guesses letters and the answer is from a hardcoded list.  The user can't guess the same item htt was already guessed or items that haven't healed.  The picture of a hangman dynamically changes as the user guesses wrongly.
 
 ## Setup/Installation Requirements
 
@@ -58,11 +55,10 @@ _README under construction_
 ## Other Technologies Used
 * _C#_
 * _MSTest_
+* _HTML_
+* _CSS_
 * _Razor_
 * _Markdown_
-
-## Notable Features
-<!-- _features that make project stand out_ -->
 
 ## Specifications
 
@@ -84,19 +80,6 @@ _README under construction_
 * If try to guess same letter twice, show error and ask for another letter
   * _Example Input: previous guesses=s, guess=s_
   * _Example Output: message="already guessed!"_
-
-
-## Screenshots
-
-<!-- _Here is a snippet of what the input looks like:_
-
-![Snippet of input fields](img/snippet1.png)
-
-_Here is a preview of what the output looks like:_
-
-![Snippet of output box](img/snippet2.png) -->
-
-<!-- _{Show pictures using ![alt text](image.jpg), show what library does as concisely as possible but don't need to explain how project solves problem from `code`_ -->
 
 ## Known Bugs
 
